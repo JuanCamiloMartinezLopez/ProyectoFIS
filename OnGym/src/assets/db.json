@@ -3,5 +3,11 @@
         "id": 1,
         "imagen": "",
         "descripcion": ""
+    }],
+    "Entrenadores": [{
+        "id": 1,
+        "username": "fede",
+        "password": "123"
     }]
+
 }

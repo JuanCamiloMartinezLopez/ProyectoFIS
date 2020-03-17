@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
+import { Observable } from 'rxjs'
+import { Entrenador } from '../models/entrenador';
+import { Atleta } from '../models/Atleta';
+import { ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -9,33 +13,47 @@ import { LoginService } from '../login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService :LoginService /*private router: Router*/) { }
+  typeUser:number;
+  private entrenador:Entrenador={
+    username:'',
+    password:'',
+  
+  };
+  atleta:Atleta;
+
+
+  constructor(private loginService :LoginService,
+              private route: ActivatedRoute, ) { }
+
+  
 
   ngOnInit(): void {
+    this.getTypeUser();
   }
-  /*
-  logIn(username: string, password: string, event: Event) {
-    event.preventDefault(); 
-
-    this.loginService.login(username, password).subscribe(
-
-      res => {
-       console.log(res);
-
-      },
-      error => {
-        console.error(error);
-        
-      },
-
-      () => this.navigate()
-    );
-
-  }
-
-  navigate() {
-    this.router.navigateByUrl('/home');
+  
+  /*logAtleta(username: string, password: string): Observable<Atleta> {
+   
+    return 
+    
   }*/
 
+  logEntrenador(username: string, password: string){
+    return this.loginService.loginE(username,password); 
+  }
+  logIn(username: string, password: string){
+    if(this.typeUser==1){
+        this.logEntrenador(username,password)
+    }else{
+      if (this.typeUser==2) {
+        
+      } else {
+        
+      }
+    }
+  }
 
+  getTypeUser():void{
+    this.typeUser=+this.route.snapshot.paramMap.get('id');
+    console.log(this.typeUser);
+  }
 }

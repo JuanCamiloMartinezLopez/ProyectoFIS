@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http'; 
+import { FormsModule} from '@angular/forms'
 import { AppComponent } from './app.component';
 import { RutinaComponent } from './rutina/rutina.component';
 import { EjercicioComponent } from './ejercicio/ejercicio.component';
@@ -19,7 +21,9 @@ import {LoginService} from './login.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [LoginService ],
   bootstrap: [AppComponent]
