@@ -19,12 +19,6 @@ app.use(cors());
 
 //routes
 app.use('/OnGym-api', require('./routes/index.js'));
-app.use('/OnGym-api', require('./routes/autentificacion.js'));
-app.use('/OnGym-api', require('./routes/atleta.js'));
-app.use('/OnGym-api', require('./routes/entrenador.js'));
-app.use('/OnGym-api', require('./routes/rutina.js'));
-app.use('/OnGym-api', require('./routes/ejericio.js'));
-app.use('/links', require('./routes/links.js'));
 
 //public
 app.use(express.static(path.join(__dirname, 'public')));
