@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 
@@ -12,7 +13,8 @@ require('./database');
 app.set('port', process.env.PORT || 4000);
 
 //middlewares
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(cors());
 
 //variables gobales
